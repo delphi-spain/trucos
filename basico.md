@@ -132,3 +132,28 @@ begin
   persona.Free;  { Liberamos la memoria }
 end.
 ```
+
+# CASE
+```
+program CaseExample;
+
+var
+  dia: Integer;
+
+begin
+  write('Ingrese un número de 1 a 7 para el día de la semana: ');
+  readln(dia);
+
+  case dia of
+    1: writeln('Lunes');
+    2: writeln('Martes');
+    3: writeln('Miércoles');
+    4: writeln('Jueves');
+    5: writeln('Viernes');
+    6: writeln('Sábado');
+    7: writeln('Domingo');
+  else
+    writeln('Número no válido. Ingrese un número entre 1 y 7.');
+  end;
+end.
+```
