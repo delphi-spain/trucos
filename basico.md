@@ -14,6 +14,32 @@ var
   doublePrecision: Double;
 ```
 
+# Comentarios
+```
+program EjemploComentarios;
+
+begin
+  writeln('Hola, mundo'); { Este es un comentario de una línea }
+  writeln('¡Bienvenidos!'); (* Este también es un comentario de una línea *)
+end.
+
+program EjemploComentarios;
+
+begin
+  { Este es un comentario de
+    múltiples líneas en Pascal.
+    Se ignora completamente. }
+  
+  writeln('Programa de ejemplo'); 
+
+  (* Otro comentario
+     de múltiples líneas *)
+end.
+```
+
+
+
+
 # Arreglos
 ```
 program ArrayExample;
