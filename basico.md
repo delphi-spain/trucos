@@ -157,3 +157,68 @@ begin
   end;
 end.
 ```
+
+
+# HERENCIAS EN CLASES
+```
+program HerenciaExample;
+
+type
+  TPersona = class
+  private
+    Nombre: String;
+    Edad: Integer;
+  public
+    constructor Create(aNombre: String; aEdad: Integer);
+    procedure MostrarInfo; virtual;
+  end;
+
+
+constructor TPersona.Create(aNombre: String; aEdad: Integer);
+begin
+  Nombre := aNombre;
+  Edad := aEdad;
+end;
+
+procedure TPersona.MostrarInfo;
+begin
+  writeln('Nombre: ', Nombre);
+  writeln('Edad: ', Edad);
+end;
+
+
+type
+  TEmpleado = class(TPersona)
+  private
+    Salario: Double;
+  public
+    constructor Create(aNombre: String; aEdad: Integer; aSalario: Double);
+    procedure MostrarInfo; override;
+  end;
+
+constructor TEmpleado.Create(aNombre: String; aEdad: Integer; aSalario: Double);
+begin
+  inherited Create(aNombre, aEdad);  { Llamamos al constructor de la clase base }
+  Salario := aSalario;
+end;
+
+procedure TEmpleado.MostrarInfo;
+begin
+  inherited MostrarInfo;  { Llamamos al método MostrarInfo de la clase base }
+  writeln('Salario: ', Salario:0:2);
+end;
+
+var
+  empleado: TEmpleado;
+
+begin
+  empleado := TEmpleado.Create('Ana', 28, 3000.50);
+  empleado.MostrarInfo;
+  empleado.Free;
+end.
+
+Nombre: Ana
+Edad: 28
+Salario: 3000.50
+```
+
